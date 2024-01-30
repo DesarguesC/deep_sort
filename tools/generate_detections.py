@@ -207,6 +207,7 @@ def main():
     encoder = create_box_encoder(args.model, batch_size=32)
     generate_detections(encoder, args.mot_dir, args.output_dir,
                         args.detection_dir)
+    # -->> output: detection_dir -> 就是npy文件?
 
 
 if __name__ == "__main__":

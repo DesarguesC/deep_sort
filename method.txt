@@ -1,0 +1,3 @@
+find: <bbox>, <locateion>(at each frame)
+index: obj-idx
+method: get "find" member via index
