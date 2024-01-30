@@ -191,4 +191,5 @@ resources/
 .DS_Store
 MOT16/
 test_out/
+inputs/
 
