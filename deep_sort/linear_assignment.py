@@ -59,19 +59,22 @@ def min_cost_matching(
 
     matches, unmatched_tracks, unmatched_detections = [], [], []
     for col, detection_idx in enumerate(detection_indices):
-        if col not in indices[:, 1]:
+        # print(np.array(indices))
+        if col not in np.array(indices)[:, 1]:
             unmatched_detections.append(detection_idx)
     for row, track_idx in enumerate(track_indices):
-        if row not in indices[:, 0]:
+        if row not in np.array(indices)[:, 0]:
             unmatched_tracks.append(track_idx)
-    for row, col in indices:
-        track_idx = track_indices[row]
-        detection_idx = detection_indices[col]
-        if cost_matrix[row, col] > max_distance:
-            unmatched_tracks.append(track_idx)
-            unmatched_detections.append(detection_idx)
-        else:
-            matches.append((track_idx, detection_idx))
+    # print(f'indices = {np.array(indices)}')
+    for row in indices[0]:
+        for col in indices[1]:
+            track_idx = track_indices[row]
+            detection_idx = detection_indices[col]
+            if cost_matrix[row, col] > max_distance:
+                unmatched_tracks.append(track_idx)
+                unmatched_detections.append(detection_idx)
+            else:
+                matches.append((track_idx, detection_idx))
     return matches, unmatched_tracks, unmatched_detections
 
 
