@@ -310,7 +310,7 @@ class ImageViewer(object):
             t1 = time.time()
             remaining_time = max(1, int(self._update_ms - 1e3*(t1-t0)))
             print("showing...")
-            save_path = os.path.join('./test_out', f'{self._caption}-{self._cnt_}.jpg')
+            save_path = os.path.join('./test_out/cells', f'{self._caption}-{self._cnt_}.jpg')
             self._cnt_ += 1
             cv2.imwrite(save_path, cv2.resize(self.image, self._window_shape[:2]))
             
@@ -335,7 +335,7 @@ class ImageViewer(object):
         # cv2.destroyWindow(self._caption)
         # cv2.waitKey(1)
         # cv2.imshow(self._caption, self.image)
-        save_path = os.path.join('./test_out', f'{self._caption}-{self._cnt_}.jpg')
+        save_path = os.path.join('./test_out/cells', f'{self._caption}-{self._cnt_}.jpg')
         self._cnt_ += 1
         cv2.imwrite(save_path, cv2.resize(self.image, self._window_shape[:2]))
 
